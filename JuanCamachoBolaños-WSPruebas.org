@@ -808,11 +808,10 @@ GET https://jsonplaceholder.typicode.com/posts/
 
 + *DELETE* :: =/projectmanagers/{id}=
   #+begin_src http :pretty
-    DELETE localhost:8000/projectmanagers/3
+    DELETE localhost:8000/projectmanagers/5
   #+end_src
 
   #+RESULTS:
   : {
-  :   "message": "Project Manager eleminado correctamente.",
-  :   "result": 1
+  :   "message": "Project Manager eleminado correctamente."
   : }

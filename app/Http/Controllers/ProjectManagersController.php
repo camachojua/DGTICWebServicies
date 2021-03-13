@@ -49,11 +49,10 @@ class ProjectManagersController extends BaseController
 
     public function delete($id){
         try {
-            $project_manager = ProjectManager::destroy($id);
+            ProjectManager::destroy($id);
 
             return response()->json([
                 'message' => 'Project Manager eleminado correctamente.',
-                'id' => $project_manager
             ], 200);
         } catch (ModelNotFoundException $e) {
             return response()->json([

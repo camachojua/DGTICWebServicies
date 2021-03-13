@@ -23,7 +23,7 @@ $router->get('/hello/world',  fn() => "¡Saludos de a la banda!");
 // List
 $router->get('/projectmanagers','ProjectManagersController@index');
 // Read
-$router->get('/projectmanagers/{id}','ProjectManagersController@read');
+$router->get('/projectmanagers/{id:[\d]+}','ProjectManagersController@read');
 // Create
 //$router->post('/projectmanagers', 'ProjectManagersController@create');
 $router->post('/projectmanagers', ['as' => 'projectmanagers.read',
@@ -31,4 +31,4 @@ $router->post('/projectmanagers', ['as' => 'projectmanagers.read',
 // Update
 $router->put('/projectmanagers', 'ProjectManagersControllers@update');
 // Delete
-$router->delete('/projectmanagers/{id}', 'ProjectManagersController@delete');
+$router->delete('/projectmanagers/{id:[\d]+}', 'ProjectManagersController@delete');

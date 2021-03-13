@@ -25,4 +25,4 @@ $router->get('/projectmanagers','ProjectManagersController@index');
 // Read
 $router->get('/projectmanagers/{id}','ProjectManagersController@read');
 // Create
-$router->post('/projectmanagers', 'ProjectManagersControllers@create');
+$router->post('/projectmanagers', 'ProjectManagersController@create');

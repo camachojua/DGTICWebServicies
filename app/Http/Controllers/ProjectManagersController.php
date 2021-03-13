@@ -27,7 +27,7 @@ class ProjectManagersController extends BaseController
 	}
 
     public function create(Request $request){
-        return ProjectManager::create($request->all);
+        return ProjectManager::create($request->all());
     }
 
     public function update(){

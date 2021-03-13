@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Laravel\Lumen\Routing\Controller as BaseController;
 use App\Models\ProjectManager;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-use Illuminate\Http\Response;
+use Illuminate\Http\Request;
 
 class ProjectManagersController extends BaseController
 {
@@ -26,8 +26,8 @@ class ProjectManagersController extends BaseController
         }
 	}
 
-    public function create(){
-        return true;
+    public function create(Request $request){
+        return ProjectManager::create($request->all);
     }
 
     public function update(){

@@ -678,7 +678,7 @@ GET https://jsonplaceholder.typicode.com/posts/
   : {
   :   "usedId": 101,
   :   "title": "Otro Titulo",
-  :   "body": "Nuevo cuerpo, super nuevo",
+  :   "body": "Nuevo cuerpo",
   :   "id": 5
   : }
 

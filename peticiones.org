@@ -643,6 +643,59 @@ GET https://jsonplaceholder.typicode.com/posts/
 // Request duration: 0.113537s
 #+END_SRC
 
-+ =POST= :: Operación
++ =POST= :: Operación Crear:
+  *Método http*: =POST=
+  *URI*: ={dominio}/{recurso}=
+  *Parámetros: Múltiples parámetros en el cuerpo de la petición
+  *Resultado*: Crea un nuevo recurso con los parámetros enviados.
+
+  #+begin_src restclient :pretty
+    POST https://jsonplaceholder.typicode.com/posts/
+    Content-type: application/json
+
+    {
+      "title": "Mi titulo",
+      "body": "Este es el cuerpo"
+    }
+  #+end_src
+
+  #+RESULTS:
+  #+BEGIN_SRC js
+  {
+    "title": "Mi titulo",
+    "body": "Este es el cuerpo",
+    "id": 101
+  }
+  // POST https://jsonplaceholder.typicode.com/posts/
+  // HTTP/1.1 201 Created
+  // Date: Sat, 13 Mar 2021 00:45:09 GMT
+  // Content-Type: application/json; charset=utf-8
+  // Content-Length: 70
+  // Connection: keep-alive
+  // X-Powered-By: Express
+  // X-Ratelimit-Limit: 1000
+  // X-Ratelimit-Remaining: 999
+  // X-Ratelimit-Reset: 1615596333
+  // Vary: Origin, X-HTTP-Method-Override, Accept-Encoding
+  // Access-Control-Allow-Credentials: true
+  // Cache-Control: no-cache
+  // Pragma: no-cache
+  // Expires: -1
+  // Access-Control-Expose-Headers: Location
+  // Location: http://jsonplaceholder.typicode.com/posts//101
+  // X-Content-Type-Options: nosniff
+  // Etag: W/"46-TOOZgzZurFQx+KXm97wxcTXwHOQ"
+  // Via: 1.1 vegur
+  // CF-Cache-Status: DYNAMIC
+  // cf-request-id: 08caa463e70000d3a2b40aa000000001
+  // Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+  // Report-To: {"group":"cf-nel","endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report?s=R6i68XZO%2BNTdNoCNyGS3WejhfQ4MwrO9xhSM4ECwetnDiRB9Jay7TYYSLbOCc1k52rQQEpfqU9kMlsxVZ1NsB%2FOSRuQdj3Bw6IUEjr3JyZrh%2FeSp5gf%2Bgu5GRkIf"}],"max_age":604800}
+  // NEL: {"report_to":"cf-nel","max_age":604800}
+  // Server: cloudflare
+  // CF-RAY: 62f13ce63e0cd3a2-LAX
+  // alt-svc: h3-27=":443"; ma=86400, h3-28=":443"; ma=86400, h3-29=":443"; ma=86400
+  // Request duration: 0.585295s
+  #+END_SRC
+
 + =PUT= :: Operación
 + DELETE :: Operación

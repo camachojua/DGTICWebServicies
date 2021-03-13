@@ -26,3 +26,7 @@ $router->get('/projectmanagers','ProjectManagersController@index');
 $router->get('/projectmanagers/{id}','ProjectManagersController@read');
 // Create
 $router->post('/projectmanagers', 'ProjectManagersController@create');
+// Update
+$router->put('/projectmanagers', 'ProjectManagersControllers@update');
+// Delete
+$router->delete('/projectmanagers/{id}', 'ProjectManagersController@delete');

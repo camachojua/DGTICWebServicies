@@ -25,4 +25,16 @@ class ProjectManagersController extends BaseController
             ], 404);
         }
 	}
+
+    public function create(){
+        return true;
+    }
+
+    public function update(){
+        return true;
+    }
+
+    public function delete(){
+        return true;
+    }
 }

@@ -718,7 +718,7 @@ GET https://jsonplaceholder.typicode.com/posts/
 
 ** Llamadas a los enpoints que hicimos
 
-+ =/projectmanagers=
++ *GET* :: =/projectmanagers=
 
 #+begin_src http :pretty
   GET localhost:8000/projectmanagers
@@ -747,7 +747,7 @@ GET https://jsonplaceholder.typicode.com/posts/
 ]
 #+end_example
 
-+ =/projectmanagers1=
++ *GET* :: =/projectmanagers1=
 
 #+begin_src http :pretty
   GET localhost:8000/projectmanagers/2
@@ -762,3 +762,22 @@ GET https://jsonplaceholder.typicode.com/posts/
 :   "created_at": "2021-03-13T15:52:28.000000Z",
 :   "updated_at": "2021-03-13T15:52:28.000000Z"
 : }
+
++ *GET* :: Error controlado =/projectmanagers/6666=
+
+#+begin_src http :pretty
+  GET localhost:8000/projectmanagers/6666
+#+end_src
+
+#+RESULTS:
+
+: {
+:   "error": {
+:     "message": "Recurso no encontrado."
+:   }
+: }
+
++ *POST* :: =/projectmanagers=
++ *PUT* :: =/projectmanagers/{id}=
++ *UPDATE* :: =/projectmanagers/{id}=
++ *DELETE* :: =/projectmanagers/{id}=

@@ -790,18 +790,10 @@ GET https://jsonplaceholder.typicode.com/posts/
   #+end_src
 
   #+RESULTS:
-  #+begin_example
-  {
-    "project_manager": {
-      "first_name": "Pedro",
-      "last_name": "López",
-      "email": "pedro.lopez@gmail.com",
-      "updated_at": "2021-03-13T18:36:51.000000Z",
-      "created_at": "2021-03-13T18:36:51.000000Z",
-      "id": 5
-    }
-  }
-  #+end_example
+  : {
+  :   "created": true,
+  :   "url": "http://localhost:8000/projectmanagers/6"
+  : }
 
 
 + *PUT* :: =/projectmanagers/{id}=

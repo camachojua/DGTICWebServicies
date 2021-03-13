@@ -15,7 +15,7 @@ class ProjectManagersController extends BaseController
 
 	}
 
-	public function read($id){
+	public function read(int $id){
         try {
             return ProjectManager::findOrFail($id);
         } catch(ModelNotFoundException $e) {
@@ -30,7 +30,8 @@ class ProjectManagersController extends BaseController
         $resultado = ProjectManager::create($request->all());
 
         return response()->json(
-            ['project_manager' => $resultado],
+            ['created' => true,
+             'url' => url('/projectmanagers', ['id' => $resultado->id])],
             201,
             ['Location' => route('projectmanagers.read', ['id' => $resultado->id])]
         );
@@ -47,7 +48,7 @@ class ProjectManagersController extends BaseController
         }
     }
 
-    public function delete($id){
+    public function delete(int $id){
         try {
             ProjectManager::destroy($id);
 

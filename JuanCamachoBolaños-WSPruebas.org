@@ -656,7 +656,7 @@ GET https://jsonplaceholder.typicode.com/posts/
   :   "id": 101
   : }
 
-+ =PUT= :: Operación
++ =PUT= :: Operación actualizar
   *Método http*: =PUT/PATCH=
   *URI*: ={dominio}/{recurso}/{identificador}=
   *Parámetros*: Múltiples parámetros en el cuerpo de la petición
@@ -682,4 +682,15 @@ GET https://jsonplaceholder.typicode.com/posts/
   :   "id": 5
   : }
 
-+ DELETE :: Operación
++ DELETE :: Operación eliminar
+  *Método http*: =DELETE=
+  *URI*: ={dominio}/{recurso}/{identificador}=
+  *Resultado*: Elimina el recurso solicitado basándose en el
+  identificador enviado.
+
+  #+begin_src http :pretty
+    DELETE https://jsonplaceholder.typicode.com/posts/5
+  #+end_src
+
+  #+RESULTS:
+  : {}

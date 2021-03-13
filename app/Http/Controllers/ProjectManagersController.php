@@ -39,7 +39,15 @@ class ProjectManagersController extends BaseController
 
     public function update(Request $request){
         try {
-            $project_manager = ProjectManager::findOrFail();
+            $project_manager = ProjectManager::findOrFail($request->id);
+
+            $project_manager->first_name = $request->first_name;
+            $project_manager->last_name = $request->last_name;
+            $project_manager->email = $request->email;
+
+            $project_manager->save();
+
+            return response()->json(['project_manager' => $project_manager]);
         } catch (ModelNotFoundException $e) {
             return response()->json([
                 'error' =>

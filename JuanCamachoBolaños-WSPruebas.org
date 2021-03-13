@@ -796,7 +796,32 @@ GET https://jsonplaceholder.typicode.com/posts/
   : }
 
 
-+ *PUT* :: =/projectmanagers/{id}=
++ *PUT* :: =/projectmanagers=
+  #+begin_src http :pretty
+    PUT localhost:8000/projectmanagers
+    Content-Type: application/json
+
+    {
+      "id": 1,
+      "first_name": "Cosme",
+      "last_name": "Fulanito",
+      "email": "cosme@fulanito.com"
+    }
+  #+end_src
+
+  #+RESULTS:
+  #+begin_example
+  {
+    "project_manager": {
+      "id": 1,
+      "first_name": "Cosme",
+      "last_name": "Fulanito",
+      "email": "cosme@fulanito.com",
+      "created_at": "2021-03-13T15:52:28.000000Z",
+      "updated_at": "2021-03-13T18:52:05.000000Z"
+    }
+  }
+  #+end_example
 
 + *DELETE* :: =/projectmanagers/{id}=
   #+begin_src http :pretty

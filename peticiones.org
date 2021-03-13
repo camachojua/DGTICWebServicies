@@ -5,12 +5,12 @@
   *URI: ={dominio}/{recurso}=
   *Resultado*: Devuelve el listado del tipo de recurso
 
-#+begin_src restclient :pretty
+#+begin_src http :pretty
 GET https://jsonplaceholder.typicode.com/posts/
 #+end_src
 
 #+RESULTS:
-#+BEGIN_SRC js
+#+begin_example
 [
   {
     "userId": 1,
@@ -613,35 +613,25 @@ GET https://jsonplaceholder.typicode.com/posts/
     "body": "cupiditate quo est a modi nesciunt soluta\nipsa voluptas error itaque dicta in\nautem qui minus magnam et distinctio eum\naccusamus ratione error aut"
   }
 ]
-// GET https://jsonplaceholder.typicode.com/posts/
-// HTTP/1.1 200 OK
-// Date: Sat, 13 Mar 2021 00:39:13 GMT
-// Content-Type: application/json; charset=utf-8
-// Transfer-Encoding: chunked
-// Connection: keep-alive
-// X-Powered-By: Express
-// X-Ratelimit-Limit: 1000
-// X-Ratelimit-Remaining: 999
-// X-Ratelimit-Reset: 1615518384
-// Vary: Origin, Accept-Encoding
-// Access-Control-Allow-Credentials: true
-// Cache-Control: max-age=43200
-// Pragma: no-cache
-// Expires: -1
-// X-Content-Type-Options: nosniff
-// Etag: W/"6b80-Ybsq/K6GwwqrYkAsFxqDXGC7DoM"
-// Via: 1.1 vegur
-// CF-Cache-Status: HIT
-// Age: 19724
-// cf-request-id: 08ca9ef6bb000004e3cf3c3000000001
-// Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
-// Report-To: {"group":"cf-nel","endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report?s=4qJIr30wQmEzQw%2BliOPAQThXnQ4YH3sBzg9DypdYafycYRg1VTMrRyR1BKzWkm0hLX%2BQtXhrFp4qyfVNXS0VWaD1oROVy84SJQ50i8hNlG0G%2F7npp2yzVvsiE4ey"}],"max_age":604800}
-// NEL: {"max_age":604800,"report_to":"cf-nel"}
-// Server: cloudflare
-// CF-RAY: 62f134379da104e3-LAX
-// alt-svc: h3-27=":443"; ma=86400, h3-28=":443"; ma=86400, h3-29=":443"; ma=86400
-// Request duration: 0.113537s
-#+END_SRC
+#+end_example
+
++ GET :: Operación leer (READ):
+  *Método http*: =GET=
+  *URI*: ={dominio}/{recurso}/{identificador}=
+  *Parámetros*: Múltiples parámetros en la URI de la petición
+  *Resultado*: Devuelve el listado del tipo de recurso.
+
+  #+begin_src http :pretty
+    GET https://jsonplaceholder.typicode.com/posts/5
+  #+end_src
+
+  #+RESULTS:
+  : {
+  :   "userId": 1,
+  :   "id": 5,
+  :   "title": "nesciunt quas odio",
+  :   "body": "repudiandae veniam quaerat sunt sed\nalias aut fugiat sit autem sed est\nvoluptatem omnis possimus esse voluptatibus quis\nest aut tenetur dolor neque"
+  : }
 
 + =POST= :: Operación Crear:
   *Método http*: =POST=
@@ -649,7 +639,7 @@ GET https://jsonplaceholder.typicode.com/posts/
   *Parámetros: Múltiples parámetros en el cuerpo de la petición
   *Resultado*: Crea un nuevo recurso con los parámetros enviados.
 
-  #+begin_src restclient :pretty
+  #+begin_src http :pretty
     POST https://jsonplaceholder.typicode.com/posts/
     Content-type: application/json
 
@@ -660,42 +650,36 @@ GET https://jsonplaceholder.typicode.com/posts/
   #+end_src
 
   #+RESULTS:
-  #+BEGIN_SRC js
-  {
-    "title": "Mi titulo",
-    "body": "Este es el cuerpo",
-    "id": 101
-  }
-  // POST https://jsonplaceholder.typicode.com/posts/
-  // HTTP/1.1 201 Created
-  // Date: Sat, 13 Mar 2021 00:45:09 GMT
-  // Content-Type: application/json; charset=utf-8
-  // Content-Length: 70
-  // Connection: keep-alive
-  // X-Powered-By: Express
-  // X-Ratelimit-Limit: 1000
-  // X-Ratelimit-Remaining: 999
-  // X-Ratelimit-Reset: 1615596333
-  // Vary: Origin, X-HTTP-Method-Override, Accept-Encoding
-  // Access-Control-Allow-Credentials: true
-  // Cache-Control: no-cache
-  // Pragma: no-cache
-  // Expires: -1
-  // Access-Control-Expose-Headers: Location
-  // Location: http://jsonplaceholder.typicode.com/posts//101
-  // X-Content-Type-Options: nosniff
-  // Etag: W/"46-TOOZgzZurFQx+KXm97wxcTXwHOQ"
-  // Via: 1.1 vegur
-  // CF-Cache-Status: DYNAMIC
-  // cf-request-id: 08caa463e70000d3a2b40aa000000001
-  // Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
-  // Report-To: {"group":"cf-nel","endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report?s=R6i68XZO%2BNTdNoCNyGS3WejhfQ4MwrO9xhSM4ECwetnDiRB9Jay7TYYSLbOCc1k52rQQEpfqU9kMlsxVZ1NsB%2FOSRuQdj3Bw6IUEjr3JyZrh%2FeSp5gf%2Bgu5GRkIf"}],"max_age":604800}
-  // NEL: {"report_to":"cf-nel","max_age":604800}
-  // Server: cloudflare
-  // CF-RAY: 62f13ce63e0cd3a2-LAX
-  // alt-svc: h3-27=":443"; ma=86400, h3-28=":443"; ma=86400, h3-29=":443"; ma=86400
-  // Request duration: 0.585295s
-  #+END_SRC
+  : {
+  :   "title": "Mi titulo",
+  :   "body": "Este es el cuerpo",
+  :   "id": 101
+  : }
 
 + =PUT= :: Operación
+  *Método http*: =PUT/PATCH=
+  *URI*: ={dominio}/{recurso}/{identificador}=
+  *Parámetros*: Múltiples parámetros en el cuerpo de la petición
+  *Resultado*: Actualiza parcial o totalmente un recurso con los
+  parámetros enviados, dependiendo del método utilizado.
+
+  #+begin_src http :pretty
+    PUT https://jsonplaceholder.typicode.com/posts/5
+    Content-Type: application/json
+
+    {
+      "usedId": 101,
+      "title": "Nuevo Titulo",
+      "body": "Nuevo cuerpo"
+    }
+  #+end_src
+
+  #+RESULTS:
+  : {
+  :   "usedId": 101,
+  :   "title": "Nuevo Titulo",
+  :   "body": "Nuevo cuerpo",
+  :   "id": 5
+  : }
+
 + DELETE :: Operación

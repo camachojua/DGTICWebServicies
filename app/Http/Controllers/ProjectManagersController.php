@@ -32,8 +32,7 @@ class ProjectManagersController extends BaseController
         return response()->json(
             ['created' => true,
              'url' => url('/projectmanagers', ['id' => $resultado->id])],
-            201,
-            ['Location' => route('projectmanagers.read', ['id' => $resultado->id])]
+            201
         );
     }
 
@@ -62,7 +61,7 @@ class ProjectManagersController extends BaseController
 
             return response()->json([
                 'message' => 'Project Manager eleminado correctamente.',
-            ], 200);
+            ], 204);
         } catch (ModelNotFoundException $e) {
             return response()->json([
                 'error' =>

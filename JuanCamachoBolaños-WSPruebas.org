@@ -747,7 +747,7 @@ GET https://jsonplaceholder.typicode.com/posts/
 ]
 #+end_example
 
-+ *GET* :: =/projectmanagers1=
++ *GET* :: =/projectmanagers/{id}=
 
 #+begin_src http :pretty
   GET localhost:8000/projectmanagers/2
@@ -763,7 +763,7 @@ GET https://jsonplaceholder.typicode.com/posts/
 :   "updated_at": "2021-03-13T15:52:28.000000Z"
 : }
 
-+ *GET* :: Error controlado =/projectmanagers/6666=
++ *GET* :: Error controlado =/projectmanagers/{id}=
 
 #+begin_src http :pretty
   GET localhost:8000/projectmanagers/6666
@@ -792,7 +792,7 @@ GET https://jsonplaceholder.typicode.com/posts/
   #+RESULTS:
   : {
   :   "created": true,
-  :   "url": "http://localhost:8000/projectmanagers/6"
+  :   "url": "http://localhost:8000/projectmanagers/9"
   : }
 
 
@@ -829,6 +829,3 @@ GET https://jsonplaceholder.typicode.com/posts/
   #+end_src
 
   #+RESULTS:
-  : {
-  :   "message": "Project Manager eleminado correctamente."
-  : }

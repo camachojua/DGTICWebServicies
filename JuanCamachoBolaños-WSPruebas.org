@@ -796,16 +796,23 @@ GET https://jsonplaceholder.typicode.com/posts/
       "first_name": "Pedro",
       "last_name": "López",
       "email": "pedro.lopez@gmail.com",
-      "updated_at": "2021-03-13T18:15:47.000000Z",
-      "created_at": "2021-03-13T18:15:47.000000Z",
-      "id": 4
+      "updated_at": "2021-03-13T18:36:51.000000Z",
+      "created_at": "2021-03-13T18:36:51.000000Z",
+      "id": 5
     }
   }
   #+end_example
 
+
 + *PUT* :: =/projectmanagers/{id}=
-+ *UPDATE* :: =/projectmanagers/{id}=
+
 + *DELETE* :: =/projectmanagers/{id}=
   #+begin_src http :pretty
     DELETE localhost:8000/projectmanagers/3
   #+end_src
+
+  #+RESULTS:
+  : {
+  :   "message": "Project Manager eleminado correctamente.",
+  :   "result": 1
+  : }

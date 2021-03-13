@@ -29,16 +29,32 @@ class ProjectManagersController extends BaseController
     public function create(Request $request){
         $resultado = ProjectManager::create($request->all());
 
-        return response()->json(['project_manager' => $resultado], 201);
+        return response()->json(
+            ['project_manager' => $resultado],
+            201,
+            ['Location' => route('projectmanagers.read', ['id' => $resultado->id])]
+        );
     }
 
     public function update(Request $request){
-        return $request->all();
+        try {
+            $project_manager = ProjectManager::findOrFail();
+        } catch (ModelNotFoundException $e) {
+            return response()->json([
+                'error' =>
+                ['message' => 'Recurso no encontrado.']
+            ], 404);
+        }
     }
 
     public function delete($id){
         try {
-            return ProjectManager::delete($id);
+            $project_manager = ProjectManager::destroy($id);
+
+            return response()->json([
+                'message' => 'Project Manager eleminado correctamente.',
+                'id' => $project_manager
+            ], 200);
         } catch (ModelNotFoundException $e) {
             return response()->json([
                 'error' =>

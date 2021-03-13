@@ -27,6 +27,20 @@ class ProjectManagersController extends BaseController
 	}
 
     public function create(Request $request){
+        $this->validate($request, [
+            'first_name' => 'required|max:255',
+            'last_name' => 'required|max:255',
+            'email' => 'required|email|unique:project_managers|max:150'
+        ], [
+            'first_name.required' => 'El :attribute es requerido.',
+            'first_name.required' => 'La longitud de :attribute es muy larga.',
+            'last_name.required' => 'El :attribute es requerido.',
+            'last_name.required' => 'La longitud de :attribute es muy larga.',
+            'email.required' => 'El :attribute es requerido.',
+            'email.unique' => 'El :attribute ya se encuentra registrado.',
+            'email.max' => 'La longitud de :attribute es muy larga.'
+        ]);
+
         $resultado = ProjectManager::create($request->all());
 
         return response()->json(

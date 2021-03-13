@@ -18,3 +18,7 @@ $router->get('/', function () use ($router) {
 });
 
 $router->get('/hello/world',  fn() => "Hello, World!");
+
+// Enrutadores de los web services
+$router->get('/projectmanagers','ProjectManagersController@index');
+$router->get('/projectmanagers/{id}','ProjectManagersController@read');

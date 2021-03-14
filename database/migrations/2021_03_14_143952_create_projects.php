@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Schema;
 class CreateProjects extends Migration
 {
     /**
-     * Run the migrations.
+n     * Run the migrations.
      *
      * @return void
      */
@@ -16,7 +16,10 @@ class CreateProjects extends Migration
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->integer('projectId');
+            $table->foreign('project_id')->
+                references('id')->
+                on('project_managers')->
+                cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });
     }

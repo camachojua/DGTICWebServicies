@@ -783,16 +783,16 @@ GET https://jsonplaceholder.typicode.com/posts/
     Content-Type: application/json
 
     {
-      "first_name": "Pedro",
-      "last_name": "López",
-      "email": "pedro.lopez@gmail.com"
+      "first_name": "Lady",
+      "last_name": "Peludita",
+      "email": "lady@gmail.com"
     }
   #+end_src
 
   #+RESULTS:
   : {
   :   "created": true,
-  :   "url": "http://localhost:8000/projectmanagers/9"
+  :   "url": "http://localhost:8000/projectmanagers/3"
   : }
 
 
@@ -826,6 +826,107 @@ GET https://jsonplaceholder.typicode.com/posts/
 + *DELETE* :: =/projectmanagers/{id}=
   #+begin_src http :pretty
     DELETE localhost:8000/projectmanagers/5
+  #+end_src
+
+  #+RESULTS:
+
+** Práctica integradora
+
++ *PUT* :: =/projects=
+  #+begin_src http :pretty
+    POST localhost:8000/projects
+    Content-Type: application/json
+
+    {
+      "name": "Ladrar mucho",
+      "manager_id": 3
+    }
+  #+end_src
+
+  #+RESULTS:
+  : {
+  :   "created": true,
+  :   "url": "http://localhost:8000/projectmanagers/7"
+  : }
+
+
++ *GET* :: =/projects=
+  #+begin_src http :pretty
+    GET localhost:8000/projects
+  #+end_src
+
+  #+RESULTS:
+  #+begin_example
+  [
+    {
+      "id": 1,
+      "name": "Construcción de un puente",
+      "manager_id": 1,
+      "created_at": "2021-03-15T22:53:31.000000Z",
+      "updated_at": "2021-03-15T22:53:31.000000Z"
+    },
+    {
+      "id": 2,
+      "name": "Comer pollito",
+      "manager_id": 1,
+      "created_at": "2021-03-15T22:53:43.000000Z",
+      "updated_at": "2021-03-15T22:53:43.000000Z"
+    },
+    {
+      "id": 3,
+      "name": "Comer todo lo que pueda comer",
+      "manager_id": 3,
+      "created_at": "2021-03-15T22:53:50.000000Z",
+      "updated_at": "2021-03-15T22:53:50.000000Z"
+    }
+  ]
+  #+end_example
+
++ *GET* :: =/projects=
+  #+begin_src http :pretty
+    GET localhost:8000/projects/1
+  #+end_src
+
+  #+RESULTS:
+  : {
+  :   "id": 1,
+  :   "name": "Construcción de un puente",
+  :   "manager_id": 1,
+  :   "created_at": "2021-03-15T22:53:31.000000Z",
+  :   "updated_at": "2021-03-15T22:53:31.000000Z"
+  : }
+
++ PUT :: =/projects=
+
+  #+begin_src http :pretty
+    PUT localhost:8000/projects
+    Content-Type: application/json
+
+    {
+      "id": 1,
+      "name": "Comer fruta",
+      "manager_id": 2
+    }
+  #+end_src
+
+  #+RESULTS:
+  #+begin_example
+  {
+    "message": "Proyecto actualizado.",
+    "proyecto": {
+      "id": 1,
+      "name": "Comer fruta",
+      "manager_id": 2,
+      "created_at": "2021-03-15T22:53:31.000000Z",
+      "updated_at": "2021-03-15T23:00:14.000000Z"
+    }
+  }
+  #+end_example
+
++ DELETE :: =/projects/{id}=
+
+  #+begin_src http :pretty
+    DELETE localhost:8000/projects/4
   #+end_src
 
   #+RESULTS:

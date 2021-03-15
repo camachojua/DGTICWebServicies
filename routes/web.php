@@ -32,3 +32,12 @@ $router->post('/projectmanagers', 'ProjectManagersController@create');
 $router->put('/projectmanagers', 'ProjectManagersController@update');
 // Delete
 $router->delete('/projectmanagers/{id:[\d]+}', 'ProjectManagersController@delete');
+
+///////////////////////
+// Inicia practica 2 //
+///////////////////////
+$router->get('/projects', 'ProjectsController@index');
+$router->get('/projects/{id:[\d]+}', 'ProjectsController@read');
+$router->post('/projects', 'ProjectsController@create');
+$router->put('/projects', 'ProjectsController@update');
+$router->delete('/projects/{id:[\d]+}', 'ProjectsController@delete');

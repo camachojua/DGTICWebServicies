@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Schema;
 class CreateProjects extends Migration
 {
     /**
-n     * Run the migrations.
+     * Run the migrations.
      *
      * @return void
      */
@@ -15,12 +15,16 @@ n     * Run the migrations.
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
-            $table->foreign('project_id')->
+            $table->string('name');
+            $table->unsignedBigInteger('manager_id');
+            $table->unique(['id', 'manager_id']);
+            $table->timestamps();
+
+            $table->foreign('manager_id')->
                 references('id')->
                 on('project_managers')->
-                cascadeOnDelete()->cascadeOnUpdate();
-            $table->timestamps();
+                onDelete('cascade')->
+                onUpdate('cascade');
         });
     }
 

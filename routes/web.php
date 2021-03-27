@@ -17,7 +17,7 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-$router->get('/hello/world',  fn() => "¡Saludos de a la banda!");
+$router->get('/hello/world',  function () {return "¡Saludos de a la banda!";});
 
 // Enrutadores de los web services
 // List
